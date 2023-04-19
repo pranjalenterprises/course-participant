@@ -202,7 +202,7 @@ const generatePDF = async (link)=>{
 
     const a = document.createElement('a'); // Step 4
     a.href = url2;
-    a.download = 'certificate.pdf'; // Step 5
+    a.download = lastSegment + '.pdf'; // Step 5
 
     a.click(); // Step 6
 
