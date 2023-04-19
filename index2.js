@@ -18,30 +18,26 @@ const generatePDF = async (link)=>{
     let name = '';
 
     // Use Papa.parse() to parse the CSV file
-    Papa.parse(datacsv, {
-    download: true,
-    header: true,
-    complete: function(results) {
-        // Access the data from the CSV file
-        const data = results.data;
-        
-        // Iterate over the data to find the row with the matching ID
-        let match = null;
-        data.forEach(function(row) {
-        if (row['id'] === searchId) {
-            match = row;
-        }
+      const results = await new Promise((resolve, reject) => {
+        Papa.parse(datacsv, {
+          download: true,
+          header: true,
+          complete: (results) => {
+            resolve(results);
+          },
+          error: (error) => {
+            reject(error);
+          },
         });
-        
-        // If a match was found, retrieve the name
-        if (match !== null) {
-        name = match['Name'];
-        } else {
-        // Handle the case where no match was found
-        console.log('ID not found');
+      });
+
+      const data = results.data;
+      let match = null;
+      data.forEach((row) => {
+        if (row["id"] === searchId) {
+          match = row;
         }
-    }
-    });
+      });
 
 
     const now = new Date();
