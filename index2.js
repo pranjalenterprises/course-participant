@@ -44,8 +44,16 @@ const generatePDF = async (link)=>{
 //     });
     
     
-    const dataSet = {'PS042427IN' : 'Parvingh Singh', 'PS042437IN' : 'Slaah', 'PS042427IN' : 'asgag'};
-    name = dataSet[id]
+    try{
+        const dataSet = {'PS042427IN' : 'Parvingh Singh', 'PS042437IN' : 'Slaah', 'PS042427IN' : 'asgag'};
+        if(dataSet[id])
+            name = dataSet[id]
+        else
+            name = ""
+    }
+    catch(e){
+        name = ""
+    }
 
 
     const now = new Date();
