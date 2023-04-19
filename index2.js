@@ -198,10 +198,10 @@ const generatePDF = async (link)=>{
 
     const blob = new Blob([pdfBytes], { type: 'application/pdf' }); // Step 2
 
-    const url = URL.createObjectURL(blob); // Step 3
+    const url2 = URL.createObjectURL(blob); // Step 3
 
     const a = document.createElement('a'); // Step 4
-    a.href = url;
+    a.href = url2;
     a.download = 'certificate.pdf'; // Step 5
 
     a.click(); // Step 6
