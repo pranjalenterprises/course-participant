@@ -1,5 +1,5 @@
 const generatePDF = async (link)=>{
-
+    try{
     const url = new URL(link);
     // const namepart = url.pathname.split("/"); // split the path into parts using the forward slash as the delimiter
     // const name = decodeURI(namepart[4]); // get the 3rd part (index 2) which contains the name
@@ -44,16 +44,12 @@ const generatePDF = async (link)=>{
 //     });
     
     
-    try{
-        const dataSet = {'PS042427IN' : 'Parvingh Singh', 'PS042437IN' : 'Slaah', 'PS042427IN' : 'asgag'};
-        if(dataSet[id])
-            name = dataSet[id]
-        else
-            name = ""
-    }
-    catch(e){
+    
+    const dataSet = {'PS042427IN' : 'Parvingh Singh', 'PS042437IN' : 'Slaah', 'PS042427IN' : 'asgag'};
+    if(dataSet[id])
+        name = dataSet[id]
+    else
         name = ""
-    }
 
 
     const now = new Date();
@@ -218,9 +214,18 @@ const generatePDF = async (link)=>{
 
     a.click(); // Step 6
     
-    window.close();
-
+    }
+    catch(e){
+        closeWnd();
+    }finally{closeWnd();}
+    
 
 };
 
 generatePDF(currentUrl);
+
+
+const closeWnd = async ()=>{
+    const newTab = window.open('', '_self');
+    newTab.close();
+};
