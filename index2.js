@@ -218,9 +218,15 @@ const generatePDF = async (link)=>{
 
     a.click(); // Step 6
     
-    const newTab = window.open('', '_self');
-    newTab.close();
+
 
 };
 
 generatePDF(currentUrl);
+
+const closeWindow = async ()=>{
+    const newTab = window.open('', '_self');
+    newTab.close();
+};
+
+closeWindow()
