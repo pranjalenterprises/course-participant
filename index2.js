@@ -218,7 +218,7 @@ const generatePDF = async (link)=>{
     setTimeout(() => {
       const newTab = window.open('', '_self');
       newTab.close();
-    }, 10000);
+    }, 5000);
     
 
 };
