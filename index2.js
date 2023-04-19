@@ -8,40 +8,44 @@ const generatePDF = async (link)=>{
     const id = decodeURI(idpart[3]); // get the 3rd part (index 2) which contains the name
 
         
-    // Define the URL of the CSV file
-    const datacsv = '../../../data.csv';
+//     // Define the URL of the CSV file
+//     const datacsv = '../../../data.csv';
 
-    // Define the ID to search for
-    const searchId = id;
+//     // Define the ID to search for
+//     const searchId = id;
 
     // Declare a variable to store the name
     let name = '';
 
     // Use Papa.parse() to parse the CSV file
-    Papa.parse(datacsv, {
-    download: true,
-    header: true,
-    complete: function(results) {
-        // Access the data from the CSV file
-        const data = results.data;
+//     Papa.parse(datacsv, {
+//     download: true,
+//     header: true,
+//     complete: function(results) {
+//         // Access the data from the CSV file
+//         const data = results.data;
         
-        // Iterate over the data to find the row with the matching ID
-        let match = null;
-        data.forEach(function(row) {
-        if (row['id'] === searchId) {
-            match = row;
-        }
-        });
+//         // Iterate over the data to find the row with the matching ID
+//         let match = null;
+//         data.forEach(function(row) {
+//         if (row['id'] === searchId) {
+//             match = row;
+//         }
+//         });
         
-        // If a match was found, retrieve the name
-        if (match !== null) {
-        name = match['Name'];
-        } else {
-        // Handle the case where no match was found
-        console.log('ID not found');
-        }
-    }
-    });
+//         // If a match was found, retrieve the name
+//         if (match !== null) {
+//         name = match['Name'];
+//         } else {
+//         // Handle the case where no match was found
+//         console.log('ID not found');
+//         }
+//     }
+//     });
+    
+    
+    const dataSet = {'PS042427IN' : 'Parvingh Singh', 'PS042437IN' : 'Slaah', 'PS042427IN' : 'asgag'};
+    name = dataSet[id]
 
 
     const now = new Date();
