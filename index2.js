@@ -194,17 +194,17 @@ const generatePDF = async (link)=>{
     document.querySelector("#mypdf").src = uri;
 
 
-    // const pdfBytes = await pdfDoc.save(); // Step 1
+    const pdfBytes = await pdfDoc.save(); // Step 1
 
-    // const blob = new Blob([pdfBytes], { type: 'application/pdf' }); // Step 2
+    const blob = new Blob([pdfBytes], { type: 'application/pdf' }); // Step 2
 
-    // const url = URL.createObjectURL(blob); // Step 3
+    const url = URL.createObjectURL(blob); // Step 3
 
-    // const a = document.createElement('a'); // Step 4
-    // a.href = url;
-    // a.download = 'certificate.pdf'; // Step 5
+    const a = document.createElement('a'); // Step 4
+    a.href = url;
+    a.download = 'certificate.pdf'; // Step 5
 
-    // a.click(); // Step 6
+    a.click(); // Step 6
 
 };
 
