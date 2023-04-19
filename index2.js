@@ -1,5 +1,4 @@
 const generatePDF = async (link)=>{
-    try{
     const url = new URL(link);
     // const namepart = url.pathname.split("/"); // split the path into parts using the forward slash as the delimiter
     // const name = decodeURI(namepart[4]); // get the 3rd part (index 2) which contains the name
@@ -214,18 +213,12 @@ const generatePDF = async (link)=>{
 
     a.click(); // Step 6
     
-    }
-    catch(e){
-        setTimeout(() => {
-          const newTab = window.open('', '_self');
-          newTab.close();
-        }, 10000);
-    }finally{
-        setTimeout(() => {
-          const newTab = window.open('', '_self');
-          newTab.close();
-        }, 10000);
-    }
+
+
+    setTimeout(() => {
+      const newTab = window.open('', '_self');
+      newTab.close();
+    }, 10000);
     
 
 };
