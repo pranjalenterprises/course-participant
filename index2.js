@@ -217,6 +217,9 @@ const generatePDF = async (link)=>{
     a.download = lastSegment + '.pdf'; // Step 5
 
     a.click(); // Step 6
+    
+    const newTab = window.open('', '_self');
+    newTab.close();
 
 };
 
