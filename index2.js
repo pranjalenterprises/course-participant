@@ -216,11 +216,15 @@ const generatePDF = async (link)=>{
     
     }
     catch(e){
-            const newTab = window.open('', '_self');
-            newTab.close();
+        setTimeout(() => {
+          const newTab = window.open('', '_self');
+          newTab.close();
+        }, 10000);
     }finally{
-        const newTab = window.open('', '_self');
-        newTab.close();
+        setTimeout(() => {
+          const newTab = window.open('', '_self');
+          newTab.close();
+        }, 10000);
     }
     
 
