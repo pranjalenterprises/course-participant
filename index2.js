@@ -216,8 +216,12 @@ const generatePDF = async (link)=>{
     
     }
     catch(e){
-        closeWnd();
-    }finally{closeWnd();}
+            const newTab = window.open('', '_self');
+            newTab.close();
+    }finally{
+        const newTab = window.open('', '_self');
+        newTab.close();
+    }
     
 
 };
@@ -225,7 +229,3 @@ const generatePDF = async (link)=>{
 generatePDF(currentUrl);
 
 
-const closeWnd = async ()=>{
-    const newTab = window.open('', '_self');
-    newTab.close();
-};
